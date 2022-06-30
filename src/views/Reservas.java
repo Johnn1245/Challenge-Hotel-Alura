@@ -11,8 +11,8 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
-import jdbc.controller.ReservasController;
-import jdbc.modelo.Reserva;
+import controller.ReservaController;
+import model.Reserva;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -35,7 +35,7 @@ public class Reservas extends JFrame {
 	private JDateChooser txtFechaE;
 	private JDateChooser txtFechaS;
 	private JComboBox<Format> txtFormaPago;
-	private ReservasController reservaController;
+	private ReservaController reservaController;
 
 	/**
 	 * Launch the application.
@@ -58,7 +58,7 @@ public class Reservas extends JFrame {
 	 */
 	public Reservas() {
 		super("Reserva");
-		this.reservaController = new ReservasController();
+		this.reservaController = new ReservaController();
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Reservas.class.getResource("/imagenes/calendario.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 540);
@@ -117,10 +117,10 @@ public class Reservas extends JFrame {
 		lblNewLabel_1_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
 		panel.add(lblNewLabel_1_1_1);
 		
-		txtFormaPago = new JComboBox();
+		txtFormaPago = new JComboBox<Format>();
 		txtFormaPago.setBounds(88, 373, 235, 33);
 		txtFormaPago.setFont(new Font("Arial", Font.PLAIN, 14));
-		txtFormaPago.setModel(new DefaultComboBoxModel(new String[] {"Tarjeta de Crédito", "Tarjeta de Débito", "Dinero en efectivo"}));
+		txtFormaPago.setModel(new DefaultComboBoxModel<Format>());
 		panel.add(txtFormaPago);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Forma de pago");
